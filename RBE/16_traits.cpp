@@ -10,11 +10,11 @@ struct Animal
     static Self create(const string& name);
 
     // Method signatures; these will return a string.
-    virtual const string& get_name() = 0;
-    virtual const string& get_noise() = 0;
+    const string& get_name();
+    const string& get_noise();
 
     // Traits can provide default method definitions.
-    virtual void talk() {
+    void talk() {
         cout << this->get_name() << " says " << this->get_noise() << endl;
     }
 };
@@ -41,11 +41,11 @@ struct Sheep: Animal<Sheep>
         return Sheep{name, false};
     }
 
-    const string& get_name() override {
+    const string& get_name() {
         return this->name;
     }
 
-    const string& get_noise() override {
+    const string& get_noise() {
         if (this->is_naked()) {
             return Sheep::noise_naked;
         } else {
@@ -54,7 +54,7 @@ struct Sheep: Animal<Sheep>
     }
 
     // Default trait methods can be overridden.
-    void talk() override {
+    void talk() {
         // For example, we can add some quiet contemplation.
         cout << this->name << " pauses briefly... " << this->get_noise() << endl;
     }
@@ -70,14 +70,14 @@ private:
         name(name), naked(naked) {}
 };
 
-const string Sheep::noise = string{"baaaaah?"};
-const string Sheep::noise_naked = string{"baaaaah!"};
+const string Sheep::noise = string{"baaaaah!"};
+const string Sheep::noise_naked = string{"baaaaah?"};
 
 int main(void)
 {
     auto dolly = Sheep::create("Dolly");
 
-    dolly.talk(); 
+    dolly.talk();
     dolly.shear();
     dolly.talk();
 

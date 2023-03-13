@@ -2,7 +2,9 @@
 
 OBJS:=\
 	16_traits_rs \
-	16_traits_cpp
+	16_traits_cpp \
+	16-2_dyn_rs \
+	16-2_dyn_cpp
 
 CXXFLAGS=-std=c++17
 
