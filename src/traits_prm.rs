@@ -1,24 +1,22 @@
 trait Tr<T> {
-    type A;             // associated type
+    type F;             // associated type
     const C: u32;       // associated const
     fn m(&self) -> T;   // method
 }
 
 struct S<T> { v: T }
 
-impl Tr<u8> for S<u8> {
-    type A = u32;
+impl<T: Copy> Tr<T> for S<T> {
+    type F = T;
     const C: u32 = 1;
-    fn m(&self) -> u8 {
-        (Self::C as u8) + self.v
-    }
+    fn m(&self) -> T { self.v }
 }
 
 fn test_1(_: &impl Tr<u8>) {}
 fn _test_2(_: &impl Tr<u16>) {}
 
-fn test_3(_: &impl Tr<u8, A = u32>) {}
-fn _test_4(_: &impl Tr<u8, A = u16>) {}
+fn test_3(_: &impl Tr<u8, F = u8>) {}
+fn _test_4(_: &impl Tr<u8, F = u16>) {}
 
 // assoc. const not supported: https://github.com/rust-lang/rust/issues/70256
 // fn test_6(_: &impl Tr<u8, C = 1>) {}
