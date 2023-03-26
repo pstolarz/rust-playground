@@ -21,7 +21,7 @@ fn _test_4(_: &impl Tr<u8, F = u16>) {}
 // assoc. const not supported: https://github.com/rust-lang/rust/issues/70256
 // fn test_6(_: &impl Tr<u8, C = 1>) {}
 
-pub fn main() {
+pub fn test() {
     // not sure why S<u8> is not allowed
     let s = S::<u8> { v: 1 };
 
