@@ -4,7 +4,7 @@ where 'a: 'b
     // ok: &'a i32 is subtype of &'b i32 (therefore may coerce into it)
     _b = _a;
 
-    // &'b &'a i32 is well formed (coercion from base to subtype)
+    // &'b &'a i32 is well formed (coercion from subtype to base)
     let _r: &'b &'a i32 = &&0;
 }
 
@@ -25,8 +25,8 @@ fn test_1() {
         res = choose_first(&x, &y);
         println!("{} is the first (1)", res);
 
-        // 'b: 'a, therefore 'a is coerced into 'b,
-        // so both choose_first() args have the same lifetime 'b
+        // 'b: 'a, therefore 'b is coerced into 'a,
+        // so both choose_first() args have the same lifetime 'a
         res = choose_first(&y, &x);
         println!("{} is the first (2)", res);
     };
