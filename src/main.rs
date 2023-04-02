@@ -1,3 +1,7 @@
+//
+// Test runner crate
+//
+mod borrow_mut;
 mod mod_test;
 mod lifetime;
 mod refs;
@@ -7,6 +11,7 @@ mod closures;
 mod closures_out;
 
 fn main() {
+    borrow_mut::test();
     mod_test::test();
     lifetime::test();
     refs::test();
