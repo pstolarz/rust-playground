@@ -1,6 +1,7 @@
 //
 // Test runner crate
 //
+mod for_iter;
 mod borrow_mut;
 mod mod_test;
 mod lifetime;
@@ -11,6 +12,7 @@ mod closures;
 mod closures_out;
 
 fn main() {
+    for_iter::test();
     borrow_mut::test();
     mod_test::test();
     lifetime::test();
