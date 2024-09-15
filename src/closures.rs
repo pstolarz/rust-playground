@@ -6,30 +6,39 @@ struct S(i32);
 // By using this it's possible to use common argument type for all of the
 // Rust functional traits: FnOnce, FnMut and Fn, regardless the FnOnce moves
 // the closure, while FnMut and Fn borrows it by &mut and & respectively.
-// Additionally, since Fn-closure is (specifically in this example) a copyable
-// object, passing the object by value allows to call Fn, FnMut and FnOnce
-// methods on it.
+//
+// Since Fn-closure is (specifically in this example) a copyable object,
+// passing the object by value allows to call Fn, FnMut and FnOnce methods on it.
 //
 // FnOnce and FnMut closures are not copyable, although for FnMut closure
 // it's possible to call it multiple time by mutable reference.
 //
-fn call_fn_once(f: impl FnOnce() -> i32) -> i32 {
+fn call_fn_once<F>(f: F) -> i32
+where
+    F: FnOnce() -> i32
+{
     f()
 }
 
-fn call_fn_mut<F>(mut f: F) -> i32 where
-    F: FnMut() -> i32 {
+fn call_fn_mut<F>(mut f: F) -> i32
+where
+    F: FnMut() -> i32
+{
     f()
 }
 
-fn call_fn<F>(f: F) -> i32 where
-    F: Fn() -> i32 {
+fn call_fn<F>(f: F) -> i32
+where
+    F: Fn() -> i32
+{
     f()
 }
 
 // FnMut-closure passed by mutable reference
-fn call_fn_mut_ref<F>(f: &mut F) -> i32 where
-    F: FnMut() -> i32 {
+fn call_fn_mut_ref<F>(f: &mut F) -> i32
+where
+    F: FnMut() -> i32
+{
     f()
 }
 
@@ -44,7 +53,7 @@ pub fn test()
     };
 
     call_fn_once(cl_fn_once);
-    // ERROR: Fn and FnMut are supertraits of FnOnce
+    // ERROR: Fn and FnMut are not subtraits of FnOnce
     //call_fn_mut(cl_fn_once);
     //call_fn(cl_fn_once);
 
@@ -63,11 +72,11 @@ pub fn test()
     call_fn_mut_ref(&mut cl_fn_mut);
     call_fn_mut_ref(&mut cl_fn_mut);
 
-    // ERROR: Fn is subtype on FnMut
+    // ERROR: Fn is not subtrait of FnMut
     //call_fn(cl_fn_mut);
 
     call_fn_mut(cl_fn_mut);
-    // ERROR: FnMut-closure is not copyable therefore can't be reused
+    // ERROR: FnMut-closure is not copyable and can't be reused
     //let x = cl_fn_mut;
     //call_fn_once(cl_fn_mut);
     //call_fn_mut_ref(&mut cl_fn_mut);
