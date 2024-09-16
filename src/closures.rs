@@ -87,8 +87,8 @@ pub fn test()
         s.0
     };
 
-    // since Fn is supertrait for FnMut and FnOnce and Fn-closure is copyable
-    // (in this example) all these calls are allowed
+    // since FnMut and FnOnce are subtraits of Fn and
+    // Fn-closure is copyable all these calls are allowed
     call_fn(cl_fn);
     call_fn_mut(cl_fn);
     call_fn_once(cl_fn);

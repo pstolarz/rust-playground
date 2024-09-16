@@ -1,31 +1,40 @@
 //
-// All closures returned by the 3 functions below are Fn-closures, which are
-// casted to a specific functional trait (Fn, FnMut, FnOnce).
+// All the following closures are returned as Fn, FnMut, FnOnce implementers.
+// The objects are not copyable since contain non-copyable object `s'.
 //
-// Fn-closure object in this example in not copyable since contains non-copyable
-// String object.
-//
-fn create_fn() -> impl Fn() {
-    let text = "Fn".to_owned();
+#[derive(Debug)]
+struct S(i32);
 
-    move || println!("This is a: {}", text)
+fn create_fn() -> impl Fn() {
+    let s = S(1);
+    move || println!("Fn has: {}", s.0)
 }
 
 fn create_fnmut() -> impl FnMut() {
-    let text = "FnMut".to_owned();
-
-    move || println!("This is a: {}", text)
+    let s = S(2);
+    move || println!("FnMut has: {}", s.0)
 }
 
 fn create_fnonce() -> impl FnOnce() {
-    let text = "FnOnce".to_owned();
-
-    move || println!("This is a: {}", text)
+    let s = S(3);
+    move || println!("FnOnce has: {}", s.0)
 }
 
-fn test_fn_once<F>(_f: &F) where F: FnOnce() {}
-fn test_fn_mut<F>(_f: &mut F) where F: FnMut() {}
-fn test_fn<F>(_f: F) where F: Fn() {}
+// normally would consume the closure
+fn test_fn_once<F>(_f: &F) where F: FnOnce() {
+    print!("test_fn_once(): ");
+    // ERROR: closure is not copyable
+    //_f();
+    println!();
+}
+fn test_fn_mut<F>(_f: &mut F) where F: FnMut() {
+    print!("test_fn_mut(): ");
+    _f();
+}
+fn test_fn<F>(_f: F) where F: Fn() {
+    print!("test_fn(): ");
+    _f();
+}
 
 //
 // The following versions of test routines won't work. They pass closure
@@ -37,30 +46,32 @@ fn test_fn<F>(_f: F) where F: Fn() {}
 
 pub fn test()
 {
-    let fn_plain = create_fn();
-    let mut fn_plain_mut = create_fn();
+    let fn_ = create_fn();
+    let mut fn_m = create_fn();
+
     let mut fn_mut = create_fnmut();
+
     let fn_once = create_fnonce();
     let mut _fn_once_mut = create_fnonce();
 
-    test_fn(&fn_plain);
-    test_fn_mut(&mut fn_plain_mut); // need mutable reference here
-    test_fn_once(&fn_plain);
-    fn_plain();
-    fn_plain();
+    fn_();
+    fn_();
+    test_fn(&fn_);
+    test_fn_mut(&mut fn_m);
+    test_fn_once(&fn_);
 
-    // ERROR: Fn is supertrait of FnMut
+    fn_mut();
+    fn_mut();
+    // ERROR: Fn is not subtrait of FnMut
     //test_fn(&fn_mut);
     test_fn_mut(&mut fn_mut);
     test_fn_once(&fn_mut);
-    fn_mut();
-    fn_mut();
 
-    // ERROR: Fn, FnMut are supertraits of FnOnce
+    fn_once();
+    // ERROR: Fn, FnMut are not subtraits of FnOnce
     //test_fn(&fn_once);
     //test_fn_mut(&mut _fn_once_mut);
+    // ERROR: closure already consumed
     //test_fn_once(&fn_once);
-    fn_once();
-    // ERROR: called on moved object
     //fn_once();
 }
