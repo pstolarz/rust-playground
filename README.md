@@ -5,6 +5,11 @@
 * _Deref coercion_ - automatic dereference. [[RPL]](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/deref-coercions.html).
 * _Orphan rule_ (aka _Coherence_) - Implementation allowed in the same crate. [[RPL]](file:///home/ps/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/book/ch10-02-traits.html#implementing-a-trait-on-a-type).
 
+* Unsized objects:
+  * slices (including `str`),
+  * Trait objects [[REF]](https://doc.rust-lang.org/reference/types/trait-object.html),
+  * struct with last object unsized.
+
 ## Variable declaration
 
 **let** [**ref**] [**mut**] _VAR_ [**:**_T_] [**=** _RHS_] **;**
@@ -92,8 +97,7 @@ For that reason `Fn` is subtype of `FnMut` which is subtype of `FnOnce`.
   function call) with their identifiers is expressed by _Higher-ranked trait bounds_
   (_HRTB_) [[NOM]](https://doc.rust-lang.org/nomicon/hrtb.html),
   [[REF]](https://doc.rust-lang.org/reference/trait-bounds.html#higher-ranked-trait-bounds),
-  where "for all lifetimes" term is used to name the substitution while defining
-  a type (function, structs, traits) containing the lifetimes.
+  where "for all lifetimes" term is used to name the substitution.
 
 * _Subtyping and Variance_ [[NOM]](https://doc.rust-lang.org/nomicon/subtyping.html#subtyping), [[REF]](https://doc.rust-lang.org/reference/subtyping.html)
 
