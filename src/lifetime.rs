@@ -4,7 +4,7 @@ where 'a: 'b
     // ok: 'a has longer lifetime than 'b i32 (therefore may coerce to it)
     _b = _a;
 
-    // &'b &'a i32 is well formed (coercion from loger to shorter lifetime)
+    // &'b &'a i32 is well formed (coercion from longer to shorter lifetime)
     let _r: &'b &'a i32 = &&0;
 }
 
@@ -14,7 +14,7 @@ fn choose_first<'a: 'b, 'b>(first: &'a i32, _: &'b i32) -> &'b i32 {
     first
 }
 
-// better apprach
+// better approach (using newer notation)
 fn choose_first2<'a>(first: &'a i32, _: &'a i32) -> &'a i32 {
     first
 }
@@ -59,7 +59,7 @@ where
     if ab > c { ab } else { c }
 }
 
-// better approach
+// better approach (using newer notation)
 fn max2<'a>(a: &'a i32, b: &'a i32, c: &'a i32) -> &'a i32
 {
     let ab = if a > b { a } else { b };
