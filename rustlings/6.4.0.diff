@@ -1,0 +1,1803 @@
+diff --git a/exercises/00_intro/intro2.rs b/exercises/00_intro/intro2.rs
+index c6cb645..03e376e 100644
+--- a/exercises/00_intro/intro2.rs
++++ b/exercises/00_intro/intro2.rs
+@@ -1,4 +1,4 @@
+ fn main() {
+     // TODO: Fix the code to print "Hello world!".
+-    printline!("Hello world!");
++    println!("Hello world!");
+ }
+diff --git a/exercises/01_variables/variables1.rs b/exercises/01_variables/variables1.rs
+index f83b44d..ec1bcac 100644
+--- a/exercises/01_variables/variables1.rs
++++ b/exercises/01_variables/variables1.rs
+@@ -1,6 +1,6 @@
+ fn main() {
+     // TODO: Add the missing keyword.
+-    x = 5;
++    let x = 5;
+ 
+     println!("x has the value {x}");
+ }
+diff --git a/exercises/01_variables/variables2.rs b/exercises/01_variables/variables2.rs
+index e2a3603..e2fd5d0 100644
+--- a/exercises/01_variables/variables2.rs
++++ b/exercises/01_variables/variables2.rs
+@@ -1,6 +1,6 @@
+ fn main() {
+     // TODO: Change the line below to fix the compiler error.
+-    let x;
++    let x = 10;
+ 
+     if x == 10 {
+         println!("x is ten!");
+diff --git a/exercises/01_variables/variables3.rs b/exercises/01_variables/variables3.rs
+index 06f35bb..56e6ef0 100644
+--- a/exercises/01_variables/variables3.rs
++++ b/exercises/01_variables/variables3.rs
+@@ -1,6 +1,6 @@
+ fn main() {
+     // TODO: Change the line below to fix the compiler error.
+-    let x: i32;
++    let x: i32 = 42;
+ 
+     println!("Number {x}");
+ }
+diff --git a/exercises/01_variables/variables4.rs b/exercises/01_variables/variables4.rs
+index 6c138b1..90d4ef0 100644
+--- a/exercises/01_variables/variables4.rs
++++ b/exercises/01_variables/variables4.rs
+@@ -1,6 +1,6 @@
+ // TODO: Fix the compiler error.
+ fn main() {
+-    let x = 3;
++    let mut x = 3;
+     println!("Number {x}");
+ 
+     x = 5; // Don't change this line
+diff --git a/exercises/01_variables/variables5.rs b/exercises/01_variables/variables5.rs
+index 49db8e9..6f1adaa 100644
+--- a/exercises/01_variables/variables5.rs
++++ b/exercises/01_variables/variables5.rs
+@@ -3,6 +3,6 @@ fn main() {
+     println!("Spell a number: {}", number);
+ 
+     // TODO: Fix the compiler error by changing the line below without renaming the variable.
+-    number = 3;
++    let number = 3;
+     println!("Number plus two is: {}", number + 2);
+ }
+diff --git a/exercises/01_variables/variables6.rs b/exercises/01_variables/variables6.rs
+index 4a040fd..deb33ed 100644
+--- a/exercises/01_variables/variables6.rs
++++ b/exercises/01_variables/variables6.rs
+@@ -1,5 +1,5 @@
+ // TODO: Change the line below to fix the compiler error.
+-const NUMBER = 3;
++const NUMBER: i32 = 3;
+ 
+ fn main() {
+     println!("Number: {NUMBER}");
+diff --git a/exercises/02_functions/functions1.rs b/exercises/02_functions/functions1.rs
+index a812c21..d775088 100644
+--- a/exercises/02_functions/functions1.rs
++++ b/exercises/02_functions/functions1.rs
+@@ -1,5 +1,7 @@
+ // TODO: Add some function with the name `call_me` without arguments or a return value.
+ 
++fn call_me() {}
++
+ fn main() {
+     call_me(); // Don't change this line
+ }
+diff --git a/exercises/02_functions/functions2.rs b/exercises/02_functions/functions2.rs
+index 2c773c6..a2cffc1 100644
+--- a/exercises/02_functions/functions2.rs
++++ b/exercises/02_functions/functions2.rs
+@@ -1,5 +1,5 @@
+ // TODO: Add the missing type of the argument `num` after the colon `:`.
+-fn call_me(num:) {
++fn call_me(num: i32) {
+     for i in 0..num {
+         println!("Ring! Call number {}", i + 1);
+     }
+diff --git a/exercises/02_functions/functions3.rs b/exercises/02_functions/functions3.rs
+index 8d65477..a226e66 100644
+--- a/exercises/02_functions/functions3.rs
++++ b/exercises/02_functions/functions3.rs
+@@ -6,5 +6,5 @@ fn call_me(num: u8) {
+ 
+ fn main() {
+     // TODO: Fix the function call.
+-    call_me();
++    call_me(1);
+ }
+diff --git a/exercises/02_functions/functions4.rs b/exercises/02_functions/functions4.rs
+index b22bffd..c1e078c 100644
+--- a/exercises/02_functions/functions4.rs
++++ b/exercises/02_functions/functions4.rs
+@@ -8,7 +8,7 @@ fn is_even(num: i64) -> bool {
+ }
+ 
+ // TODO: Fix the function signature.
+-fn sale_price(price: i64) -> {
++fn sale_price(price: i64) -> i64 {
+     if is_even(price) {
+         price - 10
+     } else {
+diff --git a/exercises/02_functions/functions5.rs b/exercises/02_functions/functions5.rs
+index 34a2ac7..a063100 100644
+--- a/exercises/02_functions/functions5.rs
++++ b/exercises/02_functions/functions5.rs
+@@ -1,6 +1,6 @@
+ // TODO: Fix the function body without changing the signature.
+ fn square(num: i32) -> i32 {
+-    num * num;
++    num * num
+ }
+ 
+ fn main() {
+diff --git a/exercises/03_if/if1.rs b/exercises/03_if/if1.rs
+index e5a3c5a..b1a304d 100644
+--- a/exercises/03_if/if1.rs
++++ b/exercises/03_if/if1.rs
+@@ -4,6 +4,11 @@ fn bigger(a: i32, b: i32) -> i32 {
+     // Do not use:
+     // - another function call
+     // - additional variables
++    if a > b {
++        a
++    } else {
++        b
++    }
+ }
+ 
+ fn main() {
+diff --git a/exercises/03_if/if2.rs b/exercises/03_if/if2.rs
+index 10037f2..a90e5fa 100644
+--- a/exercises/03_if/if2.rs
++++ b/exercises/03_if/if2.rs
+@@ -2,8 +2,10 @@
+ fn picky_eater(food: &str) -> &str {
+     if food == "strawberry" {
+         "Yummy!"
++    } else if food == "potato" {
++       "I guess I can eat that." 
+     } else {
+-        1
++        "No thanks!"
+     }
+ }
+ 
+diff --git a/exercises/03_if/if3.rs b/exercises/03_if/if3.rs
+index 89164eb..6d7a7f4 100644
+--- a/exercises/03_if/if3.rs
++++ b/exercises/03_if/if3.rs
+@@ -3,11 +3,11 @@ fn animal_habitat(animal: &str) -> &str {
+     let identifier = if animal == "crab" {
+         1
+     } else if animal == "gopher" {
+-        2.0
++        2
+     } else if animal == "snake" {
+         3
+     } else {
+-        "Unknown"
++        4
+     };
+ 
+     // Don't change the expression below!
+diff --git a/exercises/04_primitive_types/primitive_types1.rs b/exercises/04_primitive_types/primitive_types1.rs
+index 84923c7..c464bd9 100644
+--- a/exercises/04_primitive_types/primitive_types1.rs
++++ b/exercises/04_primitive_types/primitive_types1.rs
+@@ -9,6 +9,7 @@ fn main() {
+     // TODO: Define a boolean variable with the name `is_evening` before the `if` statement below.
+     // The value of the variable should be the negation (opposite) of `is_morning`.
+     // let …
++    let is_evening = !is_morning;
+     if is_evening {
+         println!("Good evening!");
+     }
+diff --git a/exercises/04_primitive_types/primitive_types2.rs b/exercises/04_primitive_types/primitive_types2.rs
+index 1401847..69a33c8 100644
+--- a/exercises/04_primitive_types/primitive_types2.rs
++++ b/exercises/04_primitive_types/primitive_types2.rs
+@@ -17,6 +17,7 @@ fn main() {
+     // Try a letter, try a digit (in single quotes), try a special character, try a character
+     // from a different language than your own, try an emoji 😉
+     // let your_character = '';
++    let your_character = '0';
+ 
+     if your_character.is_alphabetic() {
+         println!("Alphabetical!");
+diff --git a/exercises/04_primitive_types/primitive_types3.rs b/exercises/04_primitive_types/primitive_types3.rs
+index 9b79c0c..e2bcd61 100644
+--- a/exercises/04_primitive_types/primitive_types3.rs
++++ b/exercises/04_primitive_types/primitive_types3.rs
+@@ -1,6 +1,6 @@
+ fn main() {
+     // TODO: Create an array called `a` with at least 100 elements in it.
+-    // let a = ???
++    let a: [i32; 100] = [0; 100];
+ 
+     if a.len() >= 100 {
+         println!("Wow, that's a big array!");
+diff --git a/exercises/04_primitive_types/primitive_types4.rs b/exercises/04_primitive_types/primitive_types4.rs
+index 16e4fd9..5831ac5 100644
+--- a/exercises/04_primitive_types/primitive_types4.rs
++++ b/exercises/04_primitive_types/primitive_types4.rs
+@@ -10,6 +10,7 @@ mod tests {
+ 
+         // TODO: Get a slice called `nice_slice` out of the array `a` so that the test passes.
+         // let nice_slice = ???
++        let nice_slice = &a[1..4];
+ 
+         assert_eq!([2, 3, 4], nice_slice);
+     }
+diff --git a/exercises/04_primitive_types/primitive_types5.rs b/exercises/04_primitive_types/primitive_types5.rs
+index 6e00ef5..3dce863 100644
+--- a/exercises/04_primitive_types/primitive_types5.rs
++++ b/exercises/04_primitive_types/primitive_types5.rs
+@@ -3,6 +3,7 @@ fn main() {
+ 
+     // TODO: Destructure the `cat` tuple in one statement so that the println works.
+     // let /* your pattern here */ = cat;
++    let (name, age) = cat;
+ 
+     println!("{name} is {age} years old");
+ }
+diff --git a/exercises/04_primitive_types/primitive_types6.rs b/exercises/04_primitive_types/primitive_types6.rs
+index a97e531..57a0972 100644
+--- a/exercises/04_primitive_types/primitive_types6.rs
++++ b/exercises/04_primitive_types/primitive_types6.rs
+@@ -11,6 +11,7 @@ mod tests {
+         // TODO: Use a tuple index to access the second element of `numbers`
+         // and assign it to a variable called `second`.
+         // let second = ???;
++        let second = numbers.1;
+ 
+         assert_eq!(second, 2, "This is not the 2nd number in the tuple!");
+     }
+diff --git a/exercises/05_vecs/vecs1.rs b/exercises/05_vecs/vecs1.rs
+index 68e1aff..e4494a9 100644
+--- a/exercises/05_vecs/vecs1.rs
++++ b/exercises/05_vecs/vecs1.rs
+@@ -4,6 +4,7 @@ fn array_and_vec() -> ([i32; 4], Vec<i32>) {
+     // TODO: Create a vector called `v` which contains the exact same elements as in the array `a`.
+     // Use the vector macro.
+     // let v = ???;
++    let v = vec![10, 20, 30, 40];
+ 
+     (a, v)
+ }
+diff --git a/exercises/05_vecs/vecs2.rs b/exercises/05_vecs/vecs2.rs
+index a9be258..a97bc6a 100644
+--- a/exercises/05_vecs/vecs2.rs
++++ b/exercises/05_vecs/vecs2.rs
+@@ -4,6 +4,7 @@ fn vec_loop(input: &[i32]) -> Vec<i32> {
+     for element in input {
+         // TODO: Multiply each element in the `input` slice by 2 and push it to
+         // the `output` vector.
++        output.push(2 * element);
+     }
+ 
+     output
+@@ -24,7 +25,7 @@ fn vec_map(input: &[i32]) -> Vec<i32> {
+     input
+         .iter()
+         .map(|element| {
+-            // ???
++            2 * element
+         })
+         .collect()
+ }
+diff --git a/exercises/06_move_semantics/move_semantics1.rs b/exercises/06_move_semantics/move_semantics1.rs
+index 4eb3d61..bf55943 100644
+--- a/exercises/06_move_semantics/move_semantics1.rs
++++ b/exercises/06_move_semantics/move_semantics1.rs
+@@ -1,6 +1,6 @@
+ // TODO: Fix the compiler error in this function.
+ fn fill_vec(vec: Vec<i32>) -> Vec<i32> {
+-    let vec = vec;
++    let mut vec = vec;
+ 
+     vec.push(88);
+ 
+diff --git a/exercises/06_move_semantics/move_semantics2.rs b/exercises/06_move_semantics/move_semantics2.rs
+index a3ab7a0..e205b81 100644
+--- a/exercises/06_move_semantics/move_semantics2.rs
++++ b/exercises/06_move_semantics/move_semantics2.rs
+@@ -20,7 +20,7 @@ mod tests {
+     fn move_semantics2() {
+         let vec0 = vec![22, 44, 66];
+ 
+-        let vec1 = fill_vec(vec0);
++        let vec1 = fill_vec(vec0.clone());
+ 
+         assert_eq!(vec0, [22, 44, 66]);
+         assert_eq!(vec1, [22, 44, 66, 88]);
+diff --git a/exercises/06_move_semantics/move_semantics3.rs b/exercises/06_move_semantics/move_semantics3.rs
+index 11dbbbe..4a90c21 100644
+--- a/exercises/06_move_semantics/move_semantics3.rs
++++ b/exercises/06_move_semantics/move_semantics3.rs
+@@ -1,5 +1,5 @@
+ // TODO: Fix the compiler error in the function without adding any new line.
+-fn fill_vec(vec: Vec<i32>) -> Vec<i32> {
++fn fill_vec(mut vec: Vec<i32>) -> Vec<i32> {
+     vec.push(88);
+ 
+     vec
+diff --git a/exercises/06_move_semantics/move_semantics4.rs b/exercises/06_move_semantics/move_semantics4.rs
+index 56da988..89b412f 100644
+--- a/exercises/06_move_semantics/move_semantics4.rs
++++ b/exercises/06_move_semantics/move_semantics4.rs
+@@ -10,8 +10,8 @@ mod tests {
+     fn move_semantics4() {
+         let mut x = Vec::new();
+         let y = &mut x;
+-        let z = &mut x;
+         y.push(42);
++        let z = &mut x;
+         z.push(13);
+         assert_eq!(x, [42, 13]);
+     }
+diff --git a/exercises/06_move_semantics/move_semantics5.rs b/exercises/06_move_semantics/move_semantics5.rs
+index cd0dafd..78d8c77 100644
+--- a/exercises/06_move_semantics/move_semantics5.rs
++++ b/exercises/06_move_semantics/move_semantics5.rs
+@@ -4,12 +4,12 @@
+ // removing references (the character `&`).
+ 
+ // Shouldn't take ownership
+-fn get_char(data: String) -> char {
++fn get_char(data: &String) -> char {
+     data.chars().last().unwrap()
+ }
+ 
+ // Should take ownership
+-fn string_uppercase(mut data: &String) {
++fn string_uppercase(mut data: String) {
+     data = data.to_uppercase();
+ 
+     println!("{data}");
+@@ -18,7 +18,7 @@ fn string_uppercase(mut data: &String) {
+ fn main() {
+     let data = "Rust is great!".to_string();
+ 
+-    get_char(data);
++    get_char(&data);
+ 
+-    string_uppercase(&data);
++    string_uppercase(data);
+ }
+diff --git a/exercises/07_structs/structs1.rs b/exercises/07_structs/structs1.rs
+index 959c4c6..1a96904 100644
+--- a/exercises/07_structs/structs1.rs
++++ b/exercises/07_structs/structs1.rs
+@@ -1,9 +1,17 @@
+ struct ColorRegularStruct {
+     // TODO: Add the fields that the test `regular_structs` expects.
+     // What types should the fields have? What are the minimum and maximum values for RGB colors?
++    red: i32,
++    green: i32,
++    blue: i32,
+ }
+ 
+-struct ColorTupleStruct(/* TODO: Add the fields that the test `tuple_structs` expects */);
++struct ColorTupleStruct(
++    /* TODO: Add the fields that the test `tuple_structs` expects */
++    i32,
++    i32,
++    i32
++);
+ 
+ #[derive(Debug)]
+ struct UnitStruct;
+@@ -20,6 +28,7 @@ mod tests {
+     fn regular_structs() {
+         // TODO: Instantiate a regular struct.
+         // let green =
++        let green = ColorRegularStruct {red: 0, green: 255, blue: 0};
+ 
+         assert_eq!(green.red, 0);
+         assert_eq!(green.green, 255);
+@@ -30,6 +39,7 @@ mod tests {
+     fn tuple_structs() {
+         // TODO: Instantiate a tuple struct.
+         // let green =
++        let green = (0, 255, 0);
+ 
+         assert_eq!(green.0, 0);
+         assert_eq!(green.1, 255);
+@@ -40,6 +50,7 @@ mod tests {
+     fn unit_structs() {
+         // TODO: Instantiate a unit struct.
+         // let unit_struct =
++        let unit_struct = UnitStruct;
+         let message = format!("{unit_struct:?}s are fun!");
+ 
+         assert_eq!(message, "UnitStructs are fun!");
+diff --git a/exercises/07_structs/structs2.rs b/exercises/07_structs/structs2.rs
+index 79141af..694ba2e 100644
+--- a/exercises/07_structs/structs2.rs
++++ b/exercises/07_structs/structs2.rs
+@@ -35,6 +35,11 @@ mod tests {
+ 
+         // TODO: Create your own order using the update syntax and template above!
+         // let your_order =
++        let your_order = Order {
++            name: "Hacker in Rust".to_string(),
++            count: 1,
++            ..order_template
++        };
+ 
+         assert_eq!(your_order.name, "Hacker in Rust");
+         assert_eq!(your_order.year, order_template.year);
+diff --git a/exercises/07_structs/structs3.rs b/exercises/07_structs/structs3.rs
+index 69e5ced..4aeef89 100644
+--- a/exercises/07_structs/structs3.rs
++++ b/exercises/07_structs/structs3.rs
+@@ -24,14 +24,16 @@ impl Package {
+     }
+ 
+     // TODO: Add the correct return type to the function signature.
+-    fn is_international(&self) {
++    fn is_international(&self) -> bool {
+         // TODO: Read the tests that use this method to find out when a package
+         // is considered international.
++        self.sender_country != self.recipient_country
+     }
+ 
+     // TODO: Add the correct return type to the function signature.
+-    fn get_fees(&self, cents_per_gram: u32) {
++    fn get_fees(&self, cents_per_gram: u32) -> u32 {
+         // TODO: Calculate the package's fees.
++        self.weight_in_grams * cents_per_gram
+     }
+ }
+ 
+diff --git a/exercises/08_enums/enums1.rs b/exercises/08_enums/enums1.rs
+index c0d0c30..c45ac7a 100644
+--- a/exercises/08_enums/enums1.rs
++++ b/exercises/08_enums/enums1.rs
+@@ -1,6 +1,11 @@
+ #[derive(Debug)]
+ enum Message {
+     // TODO: Define a few types of messages as used below.
++    Resize,
++    Move,
++    Echo,
++    ChangeColor,
++    Quit,
+ }
+ 
+ fn main() {
+diff --git a/exercises/08_enums/enums2.rs b/exercises/08_enums/enums2.rs
+index d70f639..db05e12 100644
+--- a/exercises/08_enums/enums2.rs
++++ b/exercises/08_enums/enums2.rs
+@@ -7,6 +7,11 @@ struct Point {
+ #[derive(Debug)]
+ enum Message {
+     // TODO: Define the different variants used below.
++    Resize{ width: i32, height: i32 },
++    Move(Point),
++    Echo(String),
++    ChangeColor(i32, i32, i32),
++    Quit,
+ }
+ 
+ impl Message {
+diff --git a/exercises/08_enums/enums3.rs b/exercises/08_enums/enums3.rs
+index cb05f65..06c4266 100644
+--- a/exercises/08_enums/enums3.rs
++++ b/exercises/08_enums/enums3.rs
+@@ -46,6 +46,25 @@ impl State {
+     fn process(&mut self, message: Message) {
+         // TODO: Create a match expression to process the different message
+         // variants using the methods defined above.
++        match message {
++            Message::Resize{width, height} => {
++                self.width += width;
++                self.height += height;
++            },
++            Message::Move(Point {x, y}) => {
++                self.position.x = x;
++                self.position.y = y;
++            },
++            Message::Echo(msg) => {
++                self.message = msg;
++            },
++            Message::ChangeColor(r, g, b) => {
++                self.color = (r, g, b);
++            },
++            Message::Quit => {
++                self.quit = true;
++            },
++        };
+     }
+ }
+ 
+diff --git a/exercises/09_strings/strings1.rs b/exercises/09_strings/strings1.rs
+index 6abdbb4..06755aa 100644
+--- a/exercises/09_strings/strings1.rs
++++ b/exercises/09_strings/strings1.rs
+@@ -1,6 +1,6 @@
+ // TODO: Fix the compiler error without changing the function signature.
+ fn current_favorite_color() -> String {
+-    "blue"
++    "blue".to_string()
+ }
+ 
+ fn main() {
+diff --git a/exercises/09_strings/strings2.rs b/exercises/09_strings/strings2.rs
+index 93d9cb6..2ed89c5 100644
+--- a/exercises/09_strings/strings2.rs
++++ b/exercises/09_strings/strings2.rs
+@@ -6,7 +6,7 @@ fn is_a_color_word(attempt: &str) -> bool {
+ fn main() {
+     let word = String::from("green"); // Don't change this line.
+ 
+-    if is_a_color_word(word) {
++    if is_a_color_word(&word) {
+         println!("That is a color word I know!");
+     } else {
+         println!("That is not a color word I know.");
+diff --git a/exercises/09_strings/strings3.rs b/exercises/09_strings/strings3.rs
+index 39fce18..fa45219 100644
+--- a/exercises/09_strings/strings3.rs
++++ b/exercises/09_strings/strings3.rs
+@@ -1,13 +1,16 @@
+ fn trim_me(input: &str) -> &str {
+     // TODO: Remove whitespace from both ends of a string.
++    input.trim()
+ }
+ 
+ fn compose_me(input: &str) -> String {
+     // TODO: Add " world!" to the string! There are multiple ways to do this.
++    input.to_string() + " world!"
+ }
+ 
+ fn replace_me(input: &str) -> String {
+     // TODO: Replace "cars" in the string with "balloons".
++    input.to_string().replace("cars", "balloons")
+ }
+ 
+ fn main() {
+diff --git a/exercises/09_strings/strings4.rs b/exercises/09_strings/strings4.rs
+index 4730726..3f7c5e7 100644
+--- a/exercises/09_strings/strings4.rs
++++ b/exercises/09_strings/strings4.rs
+@@ -13,25 +13,25 @@ fn string(arg: String) {
+ // Your task is to replace `placeholder(…)` with either `string_slice(…)`
+ // or `string(…)` depending on what you think each value is.
+ fn main() {
+-    placeholder("blue");
++    string_slice("blue");
+ 
+-    placeholder("red".to_string());
++    string("red".to_string());
+ 
+-    placeholder(String::from("hi"));
++    string(String::from("hi"));
+ 
+-    placeholder("rust is fun!".to_owned());
++    string("rust is fun!".to_owned());
+ 
+-    placeholder("nice weather".into());
++    string("nice weather".into());
+ 
+-    placeholder(format!("Interpolation {}", "Station"));
++    string(format!("Interpolation {}", "Station"));
+ 
+     // WARNING: This is byte indexing, not character indexing.
+     // Character indexing can be done using `s.chars().nth(INDEX)`.
+-    placeholder(&String::from("abc")[0..1]);
++    string_slice(&String::from("abc")[0..1]);
+ 
+-    placeholder("  hello there ".trim());
++    string_slice("  hello there ".trim());
+ 
+-    placeholder("Happy Monday!".replace("Mon", "Tues"));
++    string("Happy Monday!".replace("Mon", "Tues"));
+ 
+-    placeholder("mY sHiFt KeY iS sTiCkY".to_lowercase());
++    string("mY sHiFt KeY iS sTiCkY".to_lowercase());
+ }
+diff --git a/exercises/10_modules/modules1.rs b/exercises/10_modules/modules1.rs
+index d97ab23..81981df 100644
+--- a/exercises/10_modules/modules1.rs
++++ b/exercises/10_modules/modules1.rs
+@@ -5,7 +5,7 @@ mod sausage_factory {
+         String::from("Ginger")
+     }
+ 
+-    fn make_sausage() {
++    pub fn make_sausage() {
+         get_secret_recipe();
+         println!("sausage!");
+     }
+diff --git a/exercises/10_modules/modules2.rs b/exercises/10_modules/modules2.rs
+index 782a70e..0d2b298 100644
+--- a/exercises/10_modules/modules2.rs
++++ b/exercises/10_modules/modules2.rs
+@@ -5,6 +5,8 @@ mod delicious_snacks {
+     // TODO: Add the following two `use` statements after fixing them.
+     // use self::fruits::PEAR as ???;
+     // use self::veggies::CUCUMBER as ???;
++    pub use self::fruits::PEAR as fruit;
++    pub use self::veggies::CUCUMBER as veggie;
+ 
+     mod fruits {
+         pub const PEAR: &str = "Pear";
+diff --git a/exercises/10_modules/modules3.rs b/exercises/10_modules/modules3.rs
+index 691608d..21f4c10 100644
+--- a/exercises/10_modules/modules3.rs
++++ b/exercises/10_modules/modules3.rs
+@@ -4,6 +4,7 @@
+ // TODO: Bring `SystemTime` and `UNIX_EPOCH` from the `std::time` module into
+ // your scope. Bonus style points if you can do it with one line!
+ // use ???;
++use std::time::{SystemTime, UNIX_EPOCH};
+ 
+ fn main() {
+     match SystemTime::now().duration_since(UNIX_EPOCH) {
+diff --git a/exercises/11_hashmaps/hashmaps1.rs b/exercises/11_hashmaps/hashmaps1.rs
+index 74001d0..506affb 100644
+--- a/exercises/11_hashmaps/hashmaps1.rs
++++ b/exercises/11_hashmaps/hashmaps1.rs
+@@ -9,11 +9,14 @@ use std::collections::HashMap;
+ fn fruit_basket() -> HashMap<String, u32> {
+     // TODO: Declare the hash map.
+     // let mut basket =
++    let mut basket = HashMap::new();
+ 
+     // Two bananas are already given for you :)
+     basket.insert(String::from("banana"), 2);
+ 
+     // TODO: Put more fruits in your basket.
++    basket.insert("apple".to_string(), 2);
++    basket.insert("mango".to_string(), 2);
+ 
+     basket
+ }
+diff --git a/exercises/11_hashmaps/hashmaps2.rs b/exercises/11_hashmaps/hashmaps2.rs
+index e9f53fe..99b354f 100644
+--- a/exercises/11_hashmaps/hashmaps2.rs
++++ b/exercises/11_hashmaps/hashmaps2.rs
+@@ -32,6 +32,9 @@ fn fruit_basket(basket: &mut HashMap<Fruit, u32>) {
+         // TODO: Insert new fruits if they are not already present in the
+         // basket. Note that you are not allowed to put any type of fruit that's
+         // already present!
++        if basket.get(&fruit).is_none() {
++            basket.insert(fruit, 1);
++        };
+     }
+ }
+ 
+diff --git a/exercises/11_hashmaps/hashmaps3.rs b/exercises/11_hashmaps/hashmaps3.rs
+index 5b390ab..79a84ba 100644
+--- a/exercises/11_hashmaps/hashmaps3.rs
++++ b/exercises/11_hashmaps/hashmaps3.rs
+@@ -15,6 +15,21 @@ struct TeamScores {
+     goals_conceded: u8,
+ }
+ 
++fn add_score<'a>(
++    team: &'a str,
++    scored: u8,
++    conceded: u8,
++    scores: &mut HashMap::<&'a str, TeamScores>)
++{
++    if let Some(TeamScores {goals_scored, goals_conceded}) = scores.get_mut(team) {
++        *goals_scored += scored;
++        *goals_conceded += conceded;
++    } else {
++        scores.insert(team,
++            TeamScores {goals_scored: scored, goals_conceded: conceded});
++    }
++}
++
+ fn build_scores_table(results: &str) -> HashMap<&str, TeamScores> {
+     // The name of the team is the key and its associated struct is the value.
+     let mut scores = HashMap::<&str, TeamScores>::new();
+@@ -31,6 +46,8 @@ fn build_scores_table(results: &str) -> HashMap<&str, TeamScores> {
+         // Keep in mind that goals scored by team 1 will be the number of goals
+         // conceded by team 2. Similarly, goals scored by team 2 will be the
+         // number of goals conceded by team 1.
++        add_score(team_1_name, team_1_score, team_2_score, &mut scores);
++        add_score(team_2_name, team_2_score, team_1_score, &mut scores);
+     }
+ 
+     scores
+diff --git a/exercises/12_options/options1.rs b/exercises/12_options/options1.rs
+index 9964807..fdb5e92 100644
+--- a/exercises/12_options/options1.rs
++++ b/exercises/12_options/options1.rs
+@@ -4,6 +4,11 @@
+ // `hour_of_day` is higher than 23.
+ fn maybe_icecream(hour_of_day: u16) -> Option<u16> {
+     // TODO: Complete the function body.
++    match hour_of_day {
++        0..=21 => Some(5),
++        22..=23 => Some(0),
++        _ => None
++    }
+ }
+ 
+ fn main() {
+@@ -18,7 +23,7 @@ mod tests {
+     fn raw_value() {
+         // TODO: Fix this test. How do you get the value contained in the
+         // Option?
+-        let icecreams = maybe_icecream(12);
++        let icecreams = maybe_icecream(12).unwrap();
+ 
+         assert_eq!(icecreams, 5); // Don't change this line.
+     }
+diff --git a/exercises/12_options/options2.rs b/exercises/12_options/options2.rs
+index 07c27c6..1039d61 100644
+--- a/exercises/12_options/options2.rs
++++ b/exercises/12_options/options2.rs
+@@ -10,7 +10,7 @@ mod tests {
+         let optional_target = Some(target);
+ 
+         // TODO: Make this an if-let statement whose value is `Some`.
+-        word = optional_target {
++        if let Some(word) = optional_target {
+             assert_eq!(word, target);
+         }
+     }
+@@ -29,7 +29,7 @@ mod tests {
+         // TODO: Make this a while-let statement. Remember that `Vec::pop()`
+         // adds another layer of `Option`. You can do nested pattern matching
+         // in if-let and while-let statements.
+-        integer = optional_integers.pop() {
++        while let Some(Some(integer)) = optional_integers.pop() {
+             assert_eq!(integer, cursor);
+             cursor -= 1;
+         }
+diff --git a/exercises/12_options/options3.rs b/exercises/12_options/options3.rs
+index 4cedb51..c468e1d 100644
+--- a/exercises/12_options/options3.rs
++++ b/exercises/12_options/options3.rs
+@@ -8,7 +8,7 @@ fn main() {
+     let optional_point = Some(Point { x: 100, y: 200 });
+ 
+     // TODO: Fix the compiler error by adding something to this match statement.
+-    match optional_point {
++    match &optional_point {
+         Some(p) => println!("Co-ordinates are {},{}", p.x, p.y),
+         _ => panic!("No match!"),
+     }
+diff --git a/exercises/13_error_handling/errors1.rs b/exercises/13_error_handling/errors1.rs
+index e07fddc..0cced95 100644
+--- a/exercises/13_error_handling/errors1.rs
++++ b/exercises/13_error_handling/errors1.rs
+@@ -4,12 +4,12 @@
+ // construct to `Option` that can be used to express error conditions. Change
+ // the function signature and body to return `Result<String, String>` instead
+ // of `Option<String>`.
+-fn generate_nametag_text(name: String) -> Option<String> {
++fn generate_nametag_text(name: String) -> Result<String, String> {
+     if name.is_empty() {
+         // Empty names aren't allowed
+-        None
++        Err("Empty names aren't allowed".to_string())
+     } else {
+-        Some(format!("Hi! My name is {name}"))
++        Ok(format!("Hi! My name is {name}"))
+     }
+ }
+ 
+diff --git a/exercises/13_error_handling/errors2.rs b/exercises/13_error_handling/errors2.rs
+index defe359..3d850f7 100644
+--- a/exercises/13_error_handling/errors2.rs
++++ b/exercises/13_error_handling/errors2.rs
+@@ -21,7 +21,7 @@ fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
+     let cost_per_item = 5;
+ 
+     // TODO: Handle the error case as described above.
+-    let qty = item_quantity.parse::<i32>();
++    let qty = item_quantity.parse::<i32>()?;
+ 
+     Ok(qty * cost_per_item + processing_fee)
+ }
+diff --git a/exercises/13_error_handling/errors3.rs b/exercises/13_error_handling/errors3.rs
+index 8e8c38a..8537061 100644
+--- a/exercises/13_error_handling/errors3.rs
++++ b/exercises/13_error_handling/errors3.rs
+@@ -15,7 +15,7 @@ fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
+ 
+ // TODO: Fix the compiler error by changing the signature and body of the
+ // `main` function.
+-fn main() {
++fn main() -> Result<(), ParseIntError> {
+     let mut tokens = 100;
+     let pretend_user_input = "8";
+ 
+@@ -28,4 +28,5 @@ fn main() {
+         tokens -= cost;
+         println!("You now have {tokens} tokens.");
+     }
++    Ok(())
+ }
+diff --git a/exercises/13_error_handling/errors4.rs b/exercises/13_error_handling/errors4.rs
+index ba01e54..72e8e2d 100644
+--- a/exercises/13_error_handling/errors4.rs
++++ b/exercises/13_error_handling/errors4.rs
+@@ -10,7 +10,17 @@ struct PositiveNonzeroInteger(u64);
+ impl PositiveNonzeroInteger {
+     fn new(value: i64) -> Result<Self, CreationError> {
+         // TODO: This function shouldn't always return an `Ok`.
+-        Ok(Self(value as u64))
++        match value {
++            v if v < 0 => {
++                Err(CreationError::Negative)
++            },
++            0 => {
++                Err(CreationError::Zero)
++            },
++            _ => {
++                Ok(Self(value as u64))
++            }
++        }
+     }
+ }
+ 
+diff --git a/exercises/13_error_handling/errors5.rs b/exercises/13_error_handling/errors5.rs
+index 5721835..7b9019a 100644
+--- a/exercises/13_error_handling/errors5.rs
++++ b/exercises/13_error_handling/errors5.rs
+@@ -48,7 +48,7 @@ impl PositiveNonzeroInteger {
+ 
+ // TODO: Add the correct return type `Result<(), Box<dyn ???>>`. What can we
+ // use to describe both errors? Is there a trait which both errors implement?
+-fn main() {
++fn main() -> Result<(), Box<dyn Error>> {
+     let pretend_user_input = "42";
+     let x: i64 = pretend_user_input.parse()?;
+     println!("output={:?}", PositiveNonzeroInteger::new(x)?);
+diff --git a/exercises/13_error_handling/errors6.rs b/exercises/13_error_handling/errors6.rs
+index b1995e0..0e237c3 100644
+--- a/exercises/13_error_handling/errors6.rs
++++ b/exercises/13_error_handling/errors6.rs
+@@ -43,7 +43,10 @@ impl PositiveNonzeroInteger {
+     fn parse(s: &str) -> Result<Self, ParsePosNonzeroError> {
+         // TODO: change this to return an appropriate error instead of panicking
+         // when `parse()` returns an error.
+-        let x: i64 = s.parse().unwrap();
++        let x: i64 = match s.parse() {
++            Ok(x) => { x },
++            Err(err) => { return Err(ParsePosNonzeroError::ParseInt(err)); }
++        };
+         Self::new(x).map_err(ParsePosNonzeroError::from_creation)
+     }
+ }
+diff --git a/exercises/14_generics/generics1.rs b/exercises/14_generics/generics1.rs
+index 87ed990..e13fd82 100644
+--- a/exercises/14_generics/generics1.rs
++++ b/exercises/14_generics/generics1.rs
+@@ -6,7 +6,7 @@ fn main() {
+     // TODO: Fix the compiler error by annotating the type of the vector
+     // `Vec<T>`. Choose `T` as some integer type that can be created from
+     // `u8` and `i8`.
+-    let mut numbers = Vec::new();
++    let mut numbers: Vec<i16> = Vec::new();
+ 
+     // Don't change the lines below.
+     let n1: u8 = 42;
+diff --git a/exercises/14_generics/generics2.rs b/exercises/14_generics/generics2.rs
+index 8908725..ba77625 100644
+--- a/exercises/14_generics/generics2.rs
++++ b/exercises/14_generics/generics2.rs
+@@ -1,12 +1,12 @@
+ // This powerful wrapper provides the ability to store a positive integer value.
+ // TODO: Rewrite it using a generic so that it supports wrapping ANY type.
+-struct Wrapper {
+-    value: u32,
++struct Wrapper<T> {
++    value: T,
+ }
+ 
+ // TODO: Adapt the struct's implementation to be generic over the wrapped value.
+-impl Wrapper {
+-    fn new(value: u32) -> Self {
++impl<T> Wrapper<T> {
++    fn new(value: T) -> Self {
+         Wrapper { value }
+     }
+ }
+diff --git a/exercises/15_traits/traits1.rs b/exercises/15_traits/traits1.rs
+index 85be17e..fad6a50 100644
+--- a/exercises/15_traits/traits1.rs
++++ b/exercises/15_traits/traits1.rs
+@@ -6,6 +6,9 @@ trait AppendBar {
+ 
+ impl AppendBar for String {
+     // TODO: Implement `AppendBar` for the type `String`.
++    fn append_bar(self) -> Self {
++        self + "Bar"
++    }
+ }
+ 
+ fn main() {
+diff --git a/exercises/15_traits/traits2.rs b/exercises/15_traits/traits2.rs
+index d724dc2..eb62704 100644
+--- a/exercises/15_traits/traits2.rs
++++ b/exercises/15_traits/traits2.rs
+@@ -4,6 +4,12 @@ trait AppendBar {
+ 
+ // TODO: Implement the trait `AppendBar` for a vector of strings.
+ // `append_bar` should push the string "Bar" into the vector.
++impl AppendBar for Vec<String> {
++    fn append_bar(mut self) -> Self {
++        self.push("Bar".to_string());
++        self
++    }
++}
+ 
+ fn main() {
+     // You can optionally experiment here.
+diff --git a/exercises/15_traits/traits3.rs b/exercises/15_traits/traits3.rs
+index c244650..1294951 100644
+--- a/exercises/15_traits/traits3.rs
++++ b/exercises/15_traits/traits3.rs
+@@ -3,7 +3,9 @@ trait Licensed {
+     // implementors like the two structs below can share that default behavior
+     // without repeating the function.
+     // The default license information should be the string "Default license".
+-    fn licensing_info(&self) -> String;
++    fn licensing_info(&self) -> String {
++        "Default license".to_string()
++    }
+ }
+ 
+ struct SomeSoftware {
+diff --git a/exercises/15_traits/traits4.rs b/exercises/15_traits/traits4.rs
+index 80092a6..b23dcdd 100644
+--- a/exercises/15_traits/traits4.rs
++++ b/exercises/15_traits/traits4.rs
+@@ -11,7 +11,7 @@ impl Licensed for SomeSoftware {}
+ impl Licensed for OtherSoftware {}
+ 
+ // TODO: Fix the compiler error by only changing the signature of this function.
+-fn compare_license_types(software1: ???, software2: ???) -> bool {
++fn compare_license_types(software1: impl Licensed, software2: impl Licensed) -> bool {
+     software1.licensing_info() == software2.licensing_info()
+ }
+ 
+diff --git a/exercises/15_traits/traits5.rs b/exercises/15_traits/traits5.rs
+index 5b356ac..3f48437 100644
+--- a/exercises/15_traits/traits5.rs
++++ b/exercises/15_traits/traits5.rs
+@@ -19,7 +19,7 @@ impl SomeTrait for OtherStruct {}
+ impl OtherTrait for OtherStruct {}
+ 
+ // TODO: Fix the compiler error by only changing the signature of this function.
+-fn some_func(item: ???) -> bool {
++fn some_func(item: impl SomeTrait + OtherTrait) -> bool {
+     item.some_function() && item.other_function()
+ }
+ 
+diff --git a/exercises/16_lifetimes/lifetimes1.rs b/exercises/16_lifetimes/lifetimes1.rs
+index 19e2d39..683bd75 100644
+--- a/exercises/16_lifetimes/lifetimes1.rs
++++ b/exercises/16_lifetimes/lifetimes1.rs
+@@ -4,7 +4,7 @@
+ // not own their own data. What if their owner goes out of scope?
+ 
+ // TODO: Fix the compiler error by updating the function signature.
+-fn longest(x: &str, y: &str) -> &str {
++fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+     if x.len() > y.len() {
+         x
+     } else {
+diff --git a/exercises/16_lifetimes/lifetimes2.rs b/exercises/16_lifetimes/lifetimes2.rs
+index de5a5df..ebbc99c 100644
+--- a/exercises/16_lifetimes/lifetimes2.rs
++++ b/exercises/16_lifetimes/lifetimes2.rs
+@@ -11,9 +11,9 @@ fn main() {
+     // TODO: Fix the compiler error by moving one line.
+ 
+     let string1 = String::from("long string is long");
++    let string2 = String::from("xyz");
+     let result;
+     {
+-        let string2 = String::from("xyz");
+         result = longest(&string1, &string2);
+     }
+     println!("The longest string is '{result}'");
+diff --git a/exercises/16_lifetimes/lifetimes3.rs b/exercises/16_lifetimes/lifetimes3.rs
+index 1cc2759..91e3922 100644
+--- a/exercises/16_lifetimes/lifetimes3.rs
++++ b/exercises/16_lifetimes/lifetimes3.rs
+@@ -1,9 +1,9 @@
+ // Lifetimes are also needed when structs hold references.
+ 
+ // TODO: Fix the compiler errors about the struct.
+-struct Book {
+-    author: &str,
+-    title: &str,
++struct Book<'a> {
++    author: &'a str,
++    title: &'a str,
+ }
+ 
+ fn main() {
+diff --git a/exercises/17_tests/tests1.rs b/exercises/17_tests/tests1.rs
+index 7529f9f..7e98b8e 100644
+--- a/exercises/17_tests/tests1.rs
++++ b/exercises/17_tests/tests1.rs
+@@ -13,11 +13,12 @@ fn main() {
+ mod tests {
+     // TODO: Import `is_even`. You can use a wildcard to import everything in
+     // the outer module.
++    use super::*;
+ 
+     #[test]
+     fn you_can_assert() {
+         // TODO: Test the function `is_even` with some values.
+-        assert!();
+-        assert!();
++        assert!(!is_even(1));
++        assert!(is_even(2));
+     }
+ }
+diff --git a/exercises/17_tests/tests2.rs b/exercises/17_tests/tests2.rs
+index 0c6573e..52faa7b 100644
+--- a/exercises/17_tests/tests2.rs
++++ b/exercises/17_tests/tests2.rs
+@@ -15,9 +15,9 @@ mod tests {
+     #[test]
+     fn you_can_assert_eq() {
+         // TODO: Test the function `power_of_2` with some values.
+-        assert_eq!();
+-        assert_eq!();
+-        assert_eq!();
+-        assert_eq!();
++        assert_eq!(power_of_2(0), 1);
++        assert_eq!(power_of_2(1), 2);
++        assert_eq!(power_of_2(2), 4);
++        assert_eq!(power_of_2(3), 8);
+     }
+ }
+diff --git a/exercises/17_tests/tests3.rs b/exercises/17_tests/tests3.rs
+index 822184e..085bb62 100644
+--- a/exercises/17_tests/tests3.rs
++++ b/exercises/17_tests/tests3.rs
+@@ -29,13 +29,14 @@ mod tests {
+         // TODO: This test should check if the rectangle has the size that we
+         // pass to its constructor.
+         let rect = Rectangle::new(10, 20);
+-        assert_eq!(todo!(), 10); // Check width
+-        assert_eq!(todo!(), 20); // Check height
++        assert_eq!(rect.width, 10); // Check width
++        assert_eq!(rect.height, 20); // Check height
+     }
+ 
+     // TODO: This test should check if the program panics when we try to create
+     // a rectangle with negative width.
+     #[test]
++    #[should_panic]
+     fn negative_width() {
+         let _rect = Rectangle::new(-10, 10);
+     }
+@@ -43,6 +44,7 @@ mod tests {
+     // TODO: This test should check if the program panics when we try to create
+     // a rectangle with negative height.
+     #[test]
++    #[should_panic]
+     fn negative_height() {
+         let _rect = Rectangle::new(10, -10);
+     }
+diff --git a/exercises/18_iterators/iterators1.rs b/exercises/18_iterators/iterators1.rs
+index ca937ed..71d8112 100644
+--- a/exercises/18_iterators/iterators1.rs
++++ b/exercises/18_iterators/iterators1.rs
+@@ -13,13 +13,13 @@ mod tests {
+         let my_fav_fruits = ["banana", "custard apple", "avocado", "peach", "raspberry"];
+ 
+         // TODO: Create an iterator over the array.
+-        let mut fav_fruits_iterator = todo!();
++        let mut fav_fruits_iterator = my_fav_fruits.iter();
+ 
+         assert_eq!(fav_fruits_iterator.next(), Some(&"banana"));
+-        assert_eq!(fav_fruits_iterator.next(), todo!()); // TODO: Replace `todo!()`
++        assert_eq!(fav_fruits_iterator.next(), Some(&"custard apple")); // TODO: Replace `todo!()`
+         assert_eq!(fav_fruits_iterator.next(), Some(&"avocado"));
+-        assert_eq!(fav_fruits_iterator.next(), todo!()); // TODO: Replace `todo!()`
++        assert_eq!(fav_fruits_iterator.next(), Some(&"peach")); // TODO: Replace `todo!()`
+         assert_eq!(fav_fruits_iterator.next(), Some(&"raspberry"));
+-        assert_eq!(fav_fruits_iterator.next(), todo!()); // TODO: Replace `todo!()`
++        assert_eq!(fav_fruits_iterator.next(), None); // TODO: Replace `todo!()`
+     }
+ }
+diff --git a/exercises/18_iterators/iterators2.rs b/exercises/18_iterators/iterators2.rs
+index 5903e65..9b57c14 100644
+--- a/exercises/18_iterators/iterators2.rs
++++ b/exercises/18_iterators/iterators2.rs
+@@ -7,7 +7,7 @@ fn capitalize_first(input: &str) -> String {
+     let mut chars = input.chars();
+     match chars.next() {
+         None => String::new(),
+-        Some(first) => todo!(),
++        Some(first) => first.to_uppercase().to_string() + &input[1..],
+     }
+ }
+ 
+@@ -15,14 +15,20 @@ fn capitalize_first(input: &str) -> String {
+ // Return a vector of strings.
+ // ["hello", "world"] -> ["Hello", "World"]
+ fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
+-    // ???
++    words.iter().map(|word| {
++        capitalize_first(word).to_string()
++    }).collect()
+ }
+ 
+ // TODO: Apply the `capitalize_first` function again to a slice of string
+ // slices. Return a single string.
+ // ["hello", " ", "world"] -> "Hello World"
+ fn capitalize_words_string(words: &[&str]) -> String {
+-    // ???
++    let mut ret = String::new();
++    for &word in words {
++        ret += capitalize_first(word).as_str();
++    }
++    ret
+ }
+ 
+ fn main() {
+diff --git a/exercises/18_iterators/iterators3.rs b/exercises/18_iterators/iterators3.rs
+index 6b1eca1..d6f0ad0 100644
+--- a/exercises/18_iterators/iterators3.rs
++++ b/exercises/18_iterators/iterators3.rs
+@@ -11,21 +11,31 @@ enum DivisionError {
+ // TODO: Calculate `a` divided by `b` if `a` is evenly divisible by `b`.
+ // Otherwise, return a suitable error.
+ fn divide(a: i64, b: i64) -> Result<i64, DivisionError> {
+-    todo!();
++    if b == 0 {
++        Err(DivisionError::DivideByZero)
++    } else if a.checked_div(b).is_none() {
++        Err(DivisionError::IntegerOverflow)
++    } else if (a % b) != 0 {
++        Err(DivisionError::NotDivisible)
++    } else {
++        Ok(a / b)
++    }
+ }
+ 
+ // TODO: Add the correct return type and complete the function body.
+ // Desired output: `Ok([1, 11, 1426, 3])`
+-fn result_with_list() {
++fn result_with_list() -> Result<Vec<i64>, DivisionError> {
+     let numbers = [27, 297, 38502, 81];
+     let division_results = numbers.into_iter().map(|n| divide(n, 27));
++    division_results.collect()
+ }
+ 
+ // TODO: Add the correct return type and complete the function body.
+ // Desired output: `[Ok(1), Ok(11), Ok(1426), Ok(3)]`
+-fn list_of_results() {
++fn list_of_results() -> Vec<Result<i64, DivisionError>> {
+     let numbers = [27, 297, 38502, 81];
+     let division_results = numbers.into_iter().map(|n| divide(n, 27));
++    division_results.collect()
+ }
+ 
+ fn main() {
+diff --git a/exercises/18_iterators/iterators4.rs b/exercises/18_iterators/iterators4.rs
+index c296f0e..1c56c51 100644
+--- a/exercises/18_iterators/iterators4.rs
++++ b/exercises/18_iterators/iterators4.rs
+@@ -10,6 +10,7 @@ fn factorial(num: u64) -> u64 {
+     // - additional variables
+     // For an extra challenge, don't use:
+     // - recursion
++    (1..num + 1).product()
+ }
+ 
+ fn main() {
+diff --git a/exercises/18_iterators/iterators5.rs b/exercises/18_iterators/iterators5.rs
+index 7e434cc..6f28b65 100644
+--- a/exercises/18_iterators/iterators5.rs
++++ b/exercises/18_iterators/iterators5.rs
+@@ -28,6 +28,9 @@ fn count_for(map: &HashMap<String, Progress>, value: Progress) -> usize {
+ fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {
+     // `map` is a hash map with `String` keys and `Progress` values.
+     // map = { "variables1": Complete, "from_str": None, … }
++    map.iter()
++        .filter(|&(_, v)| *v == value)
++        .count()
+ }
+ 
+ fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {
+@@ -48,6 +51,9 @@ fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Pr
+     // `collection` is a slice of hash maps.
+     // collection = [{ "variables1": Complete, "from_str": None, … },
+     //               { "variables2": Complete, … }, … ]
++    collection.iter()
++        .map(|map| count_iterator(map, value))
++        .sum()
+ }
+ 
+ fn main() {
+diff --git a/exercises/19_smart_pointers/arc1.rs b/exercises/19_smart_pointers/arc1.rs
+index 6bb860f..b3a82a6 100644
+--- a/exercises/19_smart_pointers/arc1.rs
++++ b/exercises/19_smart_pointers/arc1.rs
+@@ -24,12 +24,14 @@ fn main() {
+ 
+     // TODO: Define `shared_numbers` by using `Arc`.
+     // let shared_numbers = ???;
++    let shared_numbers = Arc::new(numbers);
+ 
+     let mut join_handles = Vec::new();
+ 
+     for offset in 0..8 {
+         // TODO: Define `child_numbers` using `shared_numbers`.
+         // let child_numbers = ???;
++        let child_numbers = shared_numbers.clone();
+ 
+         let handle = thread::spawn(move || {
+             let sum: u32 = child_numbers.iter().filter(|&&n| n % 8 == offset).sum();
+diff --git a/exercises/19_smart_pointers/box1.rs b/exercises/19_smart_pointers/box1.rs
+index d70e1c3..288f779 100644
+--- a/exercises/19_smart_pointers/box1.rs
++++ b/exercises/19_smart_pointers/box1.rs
+@@ -12,18 +12,18 @@
+ // TODO: Use a `Box` in the enum definition to make the code compile.
+ #[derive(PartialEq, Debug)]
+ enum List {
+-    Cons(i32, List),
++    Cons(i32, Box<List>),
+     Nil,
+ }
+ 
+ // TODO: Create an empty cons list.
+ fn create_empty_list() -> List {
+-    todo!()
++    List::Nil
+ }
+ 
+ // TODO: Create a non-empty cons list.
+ fn create_non_empty_list() -> List {
+-    todo!()
++    List::Cons(0, Box::<List>::new(List::Nil))
+ }
+ 
+ fn main() {
+diff --git a/exercises/19_smart_pointers/cow1.rs b/exercises/19_smart_pointers/cow1.rs
+index 1566500..0c9c1d6 100644
+--- a/exercises/19_smart_pointers/cow1.rs
++++ b/exercises/19_smart_pointers/cow1.rs
+@@ -39,7 +39,7 @@ mod tests {
+         let mut input = Cow::from(&vec);
+         abs_all(&mut input);
+         // TODO: Replace `todo!()` with `Cow::Owned(_)` or `Cow::Borrowed(_)`.
+-        assert!(matches!(input, todo!()));
++        assert!(matches!(input, Cow::Borrowed(_)));
+     }
+ 
+     #[test]
+@@ -52,7 +52,7 @@ mod tests {
+         let mut input = Cow::from(vec);
+         abs_all(&mut input);
+         // TODO: Replace `todo!()` with `Cow::Owned(_)` or `Cow::Borrowed(_)`.
+-        assert!(matches!(input, todo!()));
++        assert!(matches!(input, Cow::Owned(_)));
+     }
+ 
+     #[test]
+@@ -64,6 +64,6 @@ mod tests {
+         let mut input = Cow::from(vec);
+         abs_all(&mut input);
+         // TODO: Replace `todo!()` with `Cow::Owned(_)` or `Cow::Borrowed(_)`.
+-        assert!(matches!(input, todo!()));
++        assert!(matches!(input, Cow::Owned(_)));
+     }
+ }
+diff --git a/exercises/19_smart_pointers/rc1.rs b/exercises/19_smart_pointers/rc1.rs
+index ecd3438..5c9ce84 100644
+--- a/exercises/19_smart_pointers/rc1.rs
++++ b/exercises/19_smart_pointers/rc1.rs
+@@ -60,17 +60,17 @@ mod tests {
+         jupiter.details();
+ 
+         // TODO
+-        let saturn = Planet::Saturn(Rc::new(Sun));
++        let saturn = Planet::Saturn(Rc::clone(&sun));
+         println!("reference count = {}", Rc::strong_count(&sun)); // 7 references
+         saturn.details();
+ 
+         // TODO
+-        let uranus = Planet::Uranus(Rc::new(Sun));
++        let uranus = Planet::Uranus(Rc::clone(&sun));
+         println!("reference count = {}", Rc::strong_count(&sun)); // 8 references
+         uranus.details();
+ 
+         // TODO
+-        let neptune = Planet::Neptune(Rc::new(Sun));
++        let neptune = Planet::Neptune(Rc::clone(&sun));
+         println!("reference count = {}", Rc::strong_count(&sun)); // 9 references
+         neptune.details();
+ 
+@@ -92,12 +92,15 @@ mod tests {
+         println!("reference count = {}", Rc::strong_count(&sun)); // 4 references
+ 
+         // TODO
++        drop(earth);
+         println!("reference count = {}", Rc::strong_count(&sun)); // 3 references
+ 
+         // TODO
++        drop(venus);
+         println!("reference count = {}", Rc::strong_count(&sun)); // 2 references
+ 
+         // TODO
++        drop(mercury);
+         println!("reference count = {}", Rc::strong_count(&sun)); // 1 reference
+ 
+         assert_eq!(Rc::strong_count(&sun), 1);
+diff --git a/exercises/20_threads/threads1.rs b/exercises/20_threads/threads1.rs
+index dbc64b1..84f094c 100644
+--- a/exercises/20_threads/threads1.rs
++++ b/exercises/20_threads/threads1.rs
+@@ -24,6 +24,7 @@ fn main() {
+     for handle in handles {
+         // TODO: Collect the results of all threads into the `results` vector.
+         // Use the `JoinHandle` struct which is returned by `thread::spawn`.
++        results.push(handle.join().unwrap());
+     }
+ 
+     if results.len() != 10 {
+diff --git a/exercises/20_threads/threads2.rs b/exercises/20_threads/threads2.rs
+index 7020cb9..9c73d2f 100644
+--- a/exercises/20_threads/threads2.rs
++++ b/exercises/20_threads/threads2.rs
+@@ -2,7 +2,7 @@
+ // work. But this time, the spawned threads need to be in charge of updating a
+ // shared value: `JobStatus.jobs_done`
+ 
+-use std::{sync::Arc, thread, time::Duration};
++use std::{sync::{Arc, Mutex}, thread, time::Duration};
+ 
+ struct JobStatus {
+     jobs_done: u32,
+@@ -10,7 +10,7 @@ struct JobStatus {
+ 
+ fn main() {
+     // TODO: `Arc` isn't enough if you want a **mutable** shared state.
+-    let status = Arc::new(JobStatus { jobs_done: 0 });
++    let status = Arc::new(Mutex::new(JobStatus { jobs_done: 0 }));
+ 
+     let mut handles = Vec::new();
+     for _ in 0..10 {
+@@ -19,7 +19,7 @@ fn main() {
+             thread::sleep(Duration::from_millis(250));
+ 
+             // TODO: You must take an action before you update a shared value.
+-            status_shared.jobs_done += 1;
++            status_shared.lock().unwrap().jobs_done += 1;
+         });
+         handles.push(handle);
+     }
+@@ -30,5 +30,5 @@ fn main() {
+     }
+ 
+     // TODO: Print the value of `JobStatus.jobs_done`.
+-    println!("Jobs done: {}", todo!());
++    println!("Jobs done: {}", status.lock().unwrap().jobs_done);
+ }
+diff --git a/exercises/20_threads/threads3.rs b/exercises/20_threads/threads3.rs
+index 6d16bd9..b44ff4f 100644
+--- a/exercises/20_threads/threads3.rs
++++ b/exercises/20_threads/threads3.rs
+@@ -17,6 +17,8 @@ impl Queue {
+ fn send_tx(q: Queue, tx: mpsc::Sender<u32>) {
+     // TODO: We want to send `tx` to both threads. But currently, it is moved
+     // into the first thread. How could you solve this problem?
++    let tx2 = tx.clone();
++
+     thread::spawn(move || {
+         for val in q.first_half {
+             println!("Sending {val:?}");
+@@ -28,7 +30,7 @@ fn send_tx(q: Queue, tx: mpsc::Sender<u32>) {
+     thread::spawn(move || {
+         for val in q.second_half {
+             println!("Sending {val:?}");
+-            tx.send(val).unwrap();
++            tx2.send(val).unwrap();
+             thread::sleep(Duration::from_millis(250));
+         }
+     });
+diff --git a/exercises/21_macros/macros1.rs b/exercises/21_macros/macros1.rs
+index fb3c3ff..fb550f9 100644
+--- a/exercises/21_macros/macros1.rs
++++ b/exercises/21_macros/macros1.rs
+@@ -6,5 +6,5 @@ macro_rules! my_macro {
+ 
+ fn main() {
+     // TODO: Fix the macro call.
+-    my_macro();
++    my_macro!();
+ }
+diff --git a/exercises/21_macros/macros2.rs b/exercises/21_macros/macros2.rs
+index 2d9dec7..f310a0b 100644
+--- a/exercises/21_macros/macros2.rs
++++ b/exercises/21_macros/macros2.rs
+@@ -1,10 +1,10 @@
+-fn main() {
+-    my_macro!();
+-}
+-
+ // TODO: Fix the compiler error by moving the whole definition of this macro.
+ macro_rules! my_macro {
+     () => {
+         println!("Check out my macro!");
+     };
+ }
++
++fn main() {
++    my_macro!();
++}
+diff --git a/exercises/21_macros/macros3.rs b/exercises/21_macros/macros3.rs
+index 9537494..acda10b 100644
+--- a/exercises/21_macros/macros3.rs
++++ b/exercises/21_macros/macros3.rs
+@@ -1,5 +1,6 @@
+ // TODO: Fix the compiler error without taking the macro definition out of this
+ // module.
++#[macro_use]
+ mod macros {
+     macro_rules! my_macro {
+         () => {
+diff --git a/exercises/21_macros/macros4.rs b/exercises/21_macros/macros4.rs
+index 9d77f6a..7be6c5a 100644
+--- a/exercises/21_macros/macros4.rs
++++ b/exercises/21_macros/macros4.rs
+@@ -3,10 +3,10 @@
+ macro_rules! my_macro {
+     () => {
+         println!("Check out my macro!");
+-    }
++    };
+     ($val:expr) => {
+         println!("Look at this other macro: {}", $val);
+-    }
++    };
+ }
+ 
+ fn main() {
+diff --git a/exercises/22_clippy/clippy1.rs b/exercises/22_clippy/clippy1.rs
+index 7165da4..4c4b52a 100644
+--- a/exercises/22_clippy/clippy1.rs
++++ b/exercises/22_clippy/clippy1.rs
+@@ -6,7 +6,7 @@
+ 
+ fn main() {
+     // TODO: Fix the Clippy lint in this line.
+-    let pi = 3.14;
++    let pi = std::f32::consts::PI;
+     let radius: f32 = 5.0;
+ 
+     let area = pi * radius.powi(2);
+diff --git a/exercises/22_clippy/clippy2.rs b/exercises/22_clippy/clippy2.rs
+index 8cfe6f8..c0533ed 100644
+--- a/exercises/22_clippy/clippy2.rs
++++ b/exercises/22_clippy/clippy2.rs
+@@ -2,7 +2,7 @@ fn main() {
+     let mut res = 42;
+     let option = Some(12);
+     // TODO: Fix the Clippy lint.
+-    for x in option {
++    if let Some(x) = option {
+         res += x;
+     }
+ 
+diff --git a/exercises/22_clippy/clippy3.rs b/exercises/22_clippy/clippy3.rs
+index 4f78834..ab740c3 100644
+--- a/exercises/22_clippy/clippy3.rs
++++ b/exercises/22_clippy/clippy3.rs
+@@ -6,22 +6,26 @@
+ fn main() {
+     let my_option: Option<()> = None;
+     if my_option.is_none() {
+-        println!("{:?}", my_option.unwrap());
++        //println!("{:?}", my_option.unwrap());
++        println!("{:?}", my_option);
+     }
+ 
+     let my_arr = &[
+-        -1, -2, -3
++        -1, -2, -3,
+         -4, -5, -6
+     ];
+     println!("My array! Here it is: {my_arr:?}");
+ 
+-    let my_empty_vec = vec![1, 2, 3, 4, 5].resize(0, 5);
++    //let my_empty_vec = vec![1, 2, 3, 4, 5].resize(0, 5);
++    let mut my_empty_vec = vec![1, 2, 3, 4, 5];
++    my_empty_vec.clear();
+     println!("This Vec is empty, see? {my_empty_vec:?}");
+ 
+     let mut value_a = 45;
+     let mut value_b = 66;
+     // Let's swap these two!
+-    value_a = value_b;
+-    value_b = value_a;
++    //value_a = value_b;
++    //value_b = value_a;
++    std::mem::swap(&mut value_a, &mut value_b);
+     println!("value a: {value_a}; value b: {value_b}");
+ }
+diff --git a/exercises/23_conversions/as_ref_mut.rs b/exercises/23_conversions/as_ref_mut.rs
+index d7892dd..d9f7374 100644
+--- a/exercises/23_conversions/as_ref_mut.rs
++++ b/exercises/23_conversions/as_ref_mut.rs
+@@ -5,20 +5,29 @@
+ // Obtain the number of bytes (not characters) in the given argument
+ // (`.len()` returns the number of bytes in a string).
+ // TODO: Add the `AsRef` trait appropriately as a trait bound.
+-fn byte_counter<T>(arg: T) -> usize {
++fn byte_counter<T>(arg: T) -> usize
++    where T: AsRef<[u8]>
++{
+     arg.as_ref().len()
+ }
+ 
+ // Obtain the number of characters (not bytes) in the given argument.
+ // TODO: Add the `AsRef` trait appropriately as a trait bound.
+-fn char_counter<T>(arg: T) -> usize {
++fn char_counter<T>(arg: T) -> usize
++    where T: AsRef<str>
++{
+     arg.as_ref().chars().count()
+ }
+ 
+ // Squares a number using `as_mut()`.
+ // TODO: Add the appropriate trait bound.
+-fn num_sq<T>(arg: &mut T) {
++fn num_sq<T, I>(arg: &mut T)
++    where T: AsMut<I>,
++          I: Copy + std::ops::MulAssign
++{
+     // TODO: Implement the function body.
++    let i = arg.as_mut();
++    *i *= *i;
+ }
+ 
+ fn main() {
+diff --git a/exercises/23_conversions/from_into.rs b/exercises/23_conversions/from_into.rs
+index bc2783a..07de378 100644
+--- a/exercises/23_conversions/from_into.rs
++++ b/exercises/23_conversions/from_into.rs
+@@ -34,7 +34,26 @@ impl Default for Person {
+ // 5. Parse the second element from the split operation into a `u8` as the age.
+ // 6. If parsing the age fails, return the default of `Person`.
+ impl From<&str> for Person {
+-    fn from(s: &str) -> Self {}
++    fn from(s: &str) -> Self {
++        let mut tkns = s.split(',');
++
++        let name_res: Option<&str> =
++            match tkns.next() {
++                Some(tkn) if !tkn.is_empty() => Some(tkn),
++                _ => None
++            };
++
++        let age_res: Option<u8> =
++            match tkns.next() {
++                Some(tkn) => tkn.parse().ok(),
++                _ => None
++            };
++
++        match (name_res, age_res, tkns.next()) {
++            (Some(name), Some(age), None) => Person { name: name.to_string(), age },
++            _ => Default::default()
++        }
++    }
+ }
+ 
+ fn main() {
+diff --git a/exercises/23_conversions/from_str.rs b/exercises/23_conversions/from_str.rs
+index ec6d3fd..88bb4db 100644
+--- a/exercises/23_conversions/from_str.rs
++++ b/exercises/23_conversions/from_str.rs
+@@ -41,7 +41,28 @@ enum ParsePersonError {
+ impl FromStr for Person {
+     type Err = ParsePersonError;
+ 
+-    fn from_str(s: &str) -> Result<Self, Self::Err> {}
++    fn from_str(s: &str) -> Result<Self, Self::Err> {
++        let mut tkns = s.split(',');
++
++        let name_res: Option<&str> =
++            match tkns.next() {
++                Some(tkn) if !tkn.is_empty() => Some(tkn),
++                _ => None
++            };  
++
++        let age: u8 =
++            match tkns.next().map(|tkn| tkn.parse::<u8>()) {
++                Some(Ok(age)) => age,
++                Some(Err(err)) => return Err(ParsePersonError::ParseInt(err)),
++                None => return Err(ParsePersonError::BadLen)
++            };
++
++        match (name_res, tkns.next()) {
++            (Some(name), None) => Ok(Person{ name: name.to_string(), age }),
++            (None, None) => Err(ParsePersonError::NoName),
++            _ => Err(ParsePersonError::BadLen)
++        }
++    }
+ }
+ 
+ fn main() {
+diff --git a/exercises/23_conversions/try_from_into.rs b/exercises/23_conversions/try_from_into.rs
+index f3ae80a..24b0b0d 100644
+--- a/exercises/23_conversions/try_from_into.rs
++++ b/exercises/23_conversions/try_from_into.rs
+@@ -28,14 +28,34 @@ enum IntoColorError {
+ impl TryFrom<(i16, i16, i16)> for Color {
+     type Error = IntoColorError;
+ 
+-    fn try_from(tuple: (i16, i16, i16)) -> Result<Self, Self::Error> {}
++    fn try_from(tuple: (i16, i16, i16)) -> Result<Self, Self::Error> {
++        match tuple {
++            (r @ 0..=255, g @ 0..=255, b @ 0..=255) =>
++                Ok(Color {
++                    red: r as u8,
++                    green : g as u8,
++                    blue: b as u8}),
++
++            _ => Err(IntoColorError::IntConversion)
++        }
++    }
+ }
+ 
+ // TODO: Array implementation.
+ impl TryFrom<[i16; 3]> for Color {
+     type Error = IntoColorError;
+ 
+-    fn try_from(arr: [i16; 3]) -> Result<Self, Self::Error> {}
++    fn try_from(arr: [i16; 3]) -> Result<Self, Self::Error> {
++        match arr {
++            [r @ 0..=255, g @ 0..=255, b @ 0..=255] =>
++                Ok(Color {
++                    red: r as u8,
++                    green : g as u8,
++                    blue: b as u8}),
++
++            _ => Err(IntoColorError::IntConversion)
++        }
++    }
+ }
+ 
+ // TODO: Slice implementation.
+@@ -43,7 +63,23 @@ impl TryFrom<[i16; 3]> for Color {
+ impl TryFrom<&[i16]> for Color {
+     type Error = IntoColorError;
+ 
+-    fn try_from(slice: &[i16]) -> Result<Self, Self::Error> {}
++    fn try_from(slice: &[i16]) -> Result<Self, Self::Error> {
++        match slice {
++            &[r @ 0..=255, g @ 0..=255, b @ 0..=255] =>
++                Ok(Color {
++                    red: r as u8,
++                    green : g as u8,
++                    blue: b as u8}),
++
++            _ => {
++                if slice.len() == 3 {
++                    Err(IntoColorError::IntConversion)
++                } else {
++                    Err(IntoColorError::BadLen)
++                }
++            }
++        }
++    }
+ }
+ 
+ fn main() {
+diff --git a/exercises/23_conversions/using_as.rs b/exercises/23_conversions/using_as.rs
+index c131d1f..5f70b59 100644
+--- a/exercises/23_conversions/using_as.rs
++++ b/exercises/23_conversions/using_as.rs
+@@ -5,7 +5,7 @@
+ fn average(values: &[f64]) -> f64 {
+     let total = values.iter().sum::<f64>();
+     // TODO: Make a conversion before dividing.
+-    total / values.len()
++    total / (values.len() as f64)
+ }
+ 
+ fn main() {
+diff --git a/exercises/quizzes/quiz1.rs b/exercises/quizzes/quiz1.rs
+index 04fb2aa..45b8e5d 100644
+--- a/exercises/quizzes/quiz1.rs
++++ b/exercises/quizzes/quiz1.rs
+@@ -11,6 +11,13 @@
+ // TODO: Write a function that calculates the price of an order of apples given
+ // the quantity bought.
+ // fn calculate_price_of_apples(???) -> ??? { ??? }
++fn calculate_price_of_apples(n: i32) -> i32 {
++    if n <= 40 {
++        2 * n
++    } else {
++        n
++    }
++}
+ 
+ fn main() {
+     // You can optionally experiment here.
+diff --git a/exercises/quizzes/quiz2.rs b/exercises/quizzes/quiz2.rs
+index 2cddba9..0dd0ea7 100644
+--- a/exercises/quizzes/quiz2.rs
++++ b/exercises/quizzes/quiz2.rs
+@@ -28,6 +28,29 @@ mod my_module {
+ 
+     // TODO: Complete the function as described above.
+     // pub fn transformer(input: ???) -> ??? { ??? }
++    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
++        let mut vec: Vec<String> = Vec::new();
++
++        for element in input {
++            match element.1 {
++                Command::Uppercase => {
++                    vec.push(element.0.to_uppercase());
++                },
++                Command::Trim => {
++                    vec.push(element.0.trim().to_string());
++                },
++                Command::Append(n) => {
++                    let mut s = element.0;
++                    for _ in 0..n {
++                        s += "bar";
++                    }
++                    vec.push(s);
++                },
++            }
++        }
++
++        vec
++    }
+ }
+ 
+ fn main() {
+@@ -39,6 +62,7 @@ mod tests {
+     // TODO: What do we need to import to have `transformer` in scope?
+     // use ???;
+     use super::Command;
++    use super::my_module::transformer;
+ 
+     #[test]
+     fn it_works() {
+diff --git a/exercises/quizzes/quiz3.rs b/exercises/quizzes/quiz3.rs
+index c877c5f..f3e91a7 100644
+--- a/exercises/quizzes/quiz3.rs
++++ b/exercises/quizzes/quiz3.rs
+@@ -12,14 +12,17 @@
+ // block to support alphabetical report cards in addition to numerical ones.
+ 
+ // TODO: Adjust the struct as described above.
+-struct ReportCard {
+-    grade: f32,
++struct ReportCard<T>
++{
++    grade: T,
+     student_name: String,
+     student_age: u8,
+ }
+ 
+ // TODO: Adjust the impl block as described above.
+-impl ReportCard {
++impl<T> ReportCard<T>
++    where T: std::fmt::Display
++{
+     fn print(&self) -> String {
+         format!(
+             "{} ({}) - achieved a grade of {}",
