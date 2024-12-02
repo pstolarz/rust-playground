@@ -108,6 +108,51 @@ let &mut i = rmi;
   * `F: for<'scope> FnOnce(&'scope Scope<'scope, 'env>) -> T` uses `'scope`
     lifetime in _HRTB_ context, while `'env` is bound to `f` environment lifetime.
 
+## `Send`, `Sync`
+
+* `Send`: unsafe auto trait marking a type `T` as safe to be sent between threads
+  (value move).
+* `Sync`: unsafe auto trait marking a type `T` as safe to be shared between threads
+  (`&T` is therefore `Send`).
+
+See [[NOM]](https://doc.rust-lang.org/nomicon/send-and-sync.html) and
+[[STD]](https://doc.rust-lang.org/std/marker/trait.Sync.html).
+
+
+```rust
+#![feature(negative_impls)]
+
+struct S1;
+struct S2;
+struct S3;
+
+impl !Sync for S2{}
+impl !Send for S3{}
+
+fn main() {
+    let s2: S2;
+
+    std::thread::scope(|s| {
+        s.spawn(|| {
+            // OK: S1 is Send and may be safely sent between threads
+            return S1;
+        });
+        s.spawn(|| {
+            // OK: S2 is Send and may be safely sent between threads
+            return S2;
+        });
+        s.spawn(|| {
+            // ERROR: S2 is not Sync, therfore &S2 CAN'T be safely sent between threads
+            return &s2;
+        });
+        s.spawn(|| {
+            // ERROR: S3 is not Send, therfore CAN'T be safely sent between threads
+            return S3;
+        });
+    });
+}
+```
+
 ## Lifetimes
 
 * Notations
