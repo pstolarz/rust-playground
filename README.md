@@ -220,3 +220,36 @@ fn main() {
   returning from `assign()` `str` may be a dangling reference.
 
   NOTE: The above excerpt would compile fine in case mutability had been removed.
+
+## Conversion diagrams
+
+### `From`, `Into`
+```
+    From<B>
+ A ◄─────────────────────── B
+                    Into<A> (*)
+
+
+   (*) Created automatically
+```
+
+### `FromIterator`
+```
+    FromIterator<T>
+ A ◄─────────────────────── B
+                            │ IntoIterator<Item=T>
+                            │
+                            │
+                            │
+                            │ Iterator<Item=T>
+                            ▼
+                            I
+```
+
+### `FromStr`
+```
+         FromStr<Err=E>
+      A ◄──────────────────────── str
+(Result<A,E>)
+
+```
